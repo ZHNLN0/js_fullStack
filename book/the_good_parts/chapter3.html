@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                //对象字面量可以为空
+        var empty_object= {};
+
+        //属性名必须合法，引号括住为可选
+        var stooge = {
+            "first":"aaa",
+            "last":"zzz"
+        }
+
+        //对象字面量的属性值可以包括对象字面量在内的任意表达式，对象可以嵌套
+        var flight = {
+            airline : "Oceanic",
+            number : 815,
+            departure :{
+                IATA : "SYD",
+                time : "2004-09-22 14:55",
+                city :"sydney"
+            },
+            arrival : {
+                IATA :"LAX",
+                time :"2004-09-23 10:42",
+                city :"yushan"
+            }
+        }
+        console.log(stooge["last"]);                //输出了stooge["last"]的值 zzz
+        console.log(flight.departure);              //输出了对象字面量flight中的对面字面量departure的所有值，类型为object
+        console.log(flight.xxx);                    //对象字面量中不存在该属性时输出的为undefined
+        
+        var middle = flight.xxx || "unknow";        // ||填充默认值，即middle 未填充时输出为undefine，填充后输出为unknow
+        console.log(middle);
+
+        stooge["first"] = 'bbb';                    //当对象字面量存在时，可以将该属性值替换
+        stooge.nickname = 'eee';                    //当对象字面量不存在该属性值时，可以创建该属性，并赋值为eee
+        flight.equipment = {                        //对象字面中的对象字面量也可以创建
+            model :'Boeing 777'
+        };
+
+        var x = flight;                             //对象字面量的引用，并不会复制，当 x.number 的值更新后，原来的flight也会被改变
+        x.number = 888;
+        console.log(flight.number);                 //即输出的是 888
+
+        if(typeof Object.beget !=='function'){      //
+            Object.beget = function (o){            
+                var f = function(){};               
+                f.prototype = o;                    //函数f的原型为参数o 
+                return new f();                     //方法beget的返回值是原型o
+            }
+        }
+        var another_stooge = Object.beget(stooge);  //此时参数是对象字面量stooge，则another_stooge的原型是stooge
+        var ty = typeof another_stooge;             
+        console.log(ty);                            //输出的是object
+        another_stooge.nickname = 'fff';            
+        console.log(stooge.nickname);              //输出的是eee,即another_stooge.nickname的更新不会影响到原型stooge.nickname的值
+        stooge.profession = 'actor';
+        console.log(another_stooge.profession);    //输出的是actor当原型更新后，以该原型创建的对象可见
+        
+        var name;
+        for (name in another_stooge) {
+            if (typeof another_stooge[name] !== 'function') {
+               document.writeln(name+':'+another_stooge[name]);
+                
+            }
+        }
+
+        var i;
+        var properties = [
+            'first',
+            'last'
+        ];
+
+        for(i=0;i<properties.length;i+=1){
+            document.writeln(properties[i]+':'+another_stooge[properties[i]]);
+        }
+    </script>
+</body>
+</html>

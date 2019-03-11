@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    const huhu = {
+       name:'huhu', 
+       age:21,
+       single:true,
+       yz:100,
+
+        //函数功能  行为  target为形参
+        sendflower:function (target) {
+            
+            target.receiveFlower(huhu);
+        }
+    };
+
+    const haha = {
+        name:'haha',
+        age: 8888,
+        mood:80,
+        receiveFlower:function(sender){
+        //     if(sender.yz < 85){
+        //     console.log('丑拒');
+        //     }else{
+        //         console.log('你是个好人');
+        //     }
+        // },
+        
+        console.log('心情值:'+haha.mood+',还是丑拒。');
+        },
+        listenGoodMood:function(){
+            console.log('心情不好，不想收花');
+            setTimeout(function(){
+                haha.mood=100;
+                haha.receiveFlower();
+            },3000)
+        }
+
+    }
+    const xixi = {
+        name:'嘻嘻',
+
+        // 与haha实现了同样的接口
+        receiveFlower:function(sender){
+            // 代理者，监听haha的心情
+           haha.listenGoodMood()
+            //心情不好
+           
+        }
+            
+        //     if(sender.name === 'huhu'){
+        //     console.log('截胡了');
+        // } else {
+        //     haha.receiveFlower(sender);
+        // }
+    }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
