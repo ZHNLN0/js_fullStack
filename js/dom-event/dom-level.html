@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <script>
+        const btn = document.getElementById('btn');
+        // btn.onclick = function(){
+        //     console.log("1");
+        // }
+        // btn.onclick = function(){
+        //     console.log("2");
+        // }
+        btn.addEventListener('click',function(){
+            console.log(1);
+        })
+        btn.addEventListener('click',function(){
+            console.log(2);
+        })
+        //body
+        document.body.addEventListener('click',() => {console.log('body capture')},true);
+        //html
+        document.documentElement.addEventListener('click',()=>{
+            console.log('document capture');
+        },true);
+        //window
+        window.addEventListener('click',()=>{
+            console.log('window click');
+        },true);
+    </script>
+</body>
+</html>
