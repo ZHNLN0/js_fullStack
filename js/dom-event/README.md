@@ -13,3 +13,6 @@
     window <- document(documentElement) <- body <- 父级 <- 目标元素
     时间按照 dom流的顺序执行我们的事件回调
     处于目标阶段的时候 事件调用顺序取决于时间注册的顺序
+- 事件代理 (事件委托)
+event-question.html
+原理：冒泡
