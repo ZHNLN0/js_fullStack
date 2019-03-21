@@ -106,14 +106,15 @@
       })
     }
 
-    var oPay = document.querySelectorAll('.page__bd');
+    var oPay = document.querySelector('.page__bd');
     var dialog = document.getElementById('iosDialog2');
     oPay.onclick = function(){
+      console.log(123)
         dialog.style.display = 'block';
         dialog.style.opacity = 1;
     }
     var dialog = document.getElementById('iosDialog2');
-    var know = document.querySelectorAll('.weui-dialog__ft');
+    var know = document.querySelector('.weui-dialog__ft');
     know.onclick = function(){
         dialog.style.display = 'none';
         dialog.style.opacity = 0;
