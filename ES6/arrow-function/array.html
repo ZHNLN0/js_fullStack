@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const ages = [
+            {
+                name:'zs',
+                age:18
+            },
+            {
+                name:'ls',
+                age: 30
+            }
+        ];
+        const this_age = ages.find((ages)=>{if(ages.age === 30)return ages;});  //找不到时返回 undefinder
+        const this_age_index = ages.findIndex(function(ages){if(ages.age === 30)return ages;}); // 找不到时返回 -1
+        console.log(this_age)
+        console.log(this_age_index);
+    </script>
+</body>
+</html>

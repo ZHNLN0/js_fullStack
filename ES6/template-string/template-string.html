@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table id="tbody">
+        <tr>
+            <td>name</td>
+            <td>age</td>
+        </tr>
+    </table>
+    <script>
+        const tbody = document.getElementById('tbody');
+    const person = {
+        name: '韩梅梅', age:10,sex:'w',keywords:['game','sports']
+    }
+    const people = [
+        {name:'李雷',age:18},
+        {name:'韩梅梅', age:20}
+    ]
+    function renderKeysWords(arr){
+        return arr.map(keyword =>{
+            return `<li>${keyword}</li>`
+        })
+        .join('');
+    }
+    
+    // let str ='<tr><td>'+person.name+'</td><td>'+person.age+'</td></tr>';
+    // let str = `<tr>
+    //             <td>${person.name}</td>
+    //             <td>${person.age}</td>
+    //             <td>${person.sex === 'w' ? '女' : '男'}</td>
+    //             <td>${renderKeysWords(person.keywords)}</td>
+    //             <td>${100 + 100}</td>
+    //             <td>${'sasd' + 100 + 'asdsd'}</td>
+    //             <td>\`${'`'}</td>
+    //             </tr>`
+    let str = `<tr>
+            <td>${people[0].name}</td>
+            <td>${people[0].age}</td>
+            <tr>
+            <td>${people[1].name}</td>
+            <td>${people[1].age}</td>
+            </tr>
+        </tr>`
+    tbody.innerHTML = str;
+    </script>
+</body>
+</html>

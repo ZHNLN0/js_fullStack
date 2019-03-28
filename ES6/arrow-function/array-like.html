@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组类</title>
+</head>
+
+<body>
+    <ul id="lists">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        // 类数组
+        const lis = document.querySelectorAll('#lists li');
+        console.log(lis);
+        const lis_array = Array.from(lis);
+        const lisHtmlContent = lis_array.map(liNode => liNode.innerHTML);
+        console.log(lisHtmlContent);
+        // 真数组
+        const arr = [1, 2, 3];
+
+        function foo() {
+            const a = Array.from(arguments);            //将参数转为数组
+            console.log(a); 
+            const b = a.map(function (a) {
+                if (a > 10) {
+                    return 3 * a;
+                } else return a;
+            });
+            console.log(b);
+            return b;
+        }
+        foo(1, 2, 3, 4, 15);
+    </script>
+</body>
+
+</html>
