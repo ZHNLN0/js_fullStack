@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        const obj = {
+            name:'李雷',
+            age:32,
+            foo:{
+                bar:'bar val'
+            },
+            baz:['hello', {msg:'world'}]
+        }
+
+        // : 赋值 undefined
+        const {
+            age:this_age,
+            name:this_name,
+            foo:{bar},
+            baz:[hello,{msg:world}]
+        } = obj;   //顺序无关
+    </script>
+</body>
+</html>

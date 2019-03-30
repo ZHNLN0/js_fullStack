@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const lists = [
+            {name:'李雷'},
+            {age:'32'},
+            [{school:'ecit'}]
+        ];
+        
+        // 数组的解构 e===undefined 
+        const [a,b] = lists;
+        const [,,c,e] = lists;
+        const [,,[F]] = lists;  // 类型 Object
+        const [,,f] = lists;    // 类型 array
+    </script>
+</body>
+</html>
