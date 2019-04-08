@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+  <link href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body style="font-size: 12px;">
+  <header class="nav">
+    <i class="arrow-left"></i>
+    <span>影片详情</span>
+  </header>
+  <div class="page">
+    <section class="movie-header">
+      <div class="movie">
+        <div class="movie-background"></div>
+        <div class="movie-filter"></div>
+        <div class="movie-container">
+          <!-- pic -->
+          <div class="movie-cover">
+            <a href="#" class="link">
+              <img class="img" src="https://img1.doubanio.com/view/photo/m/public/p2551352209.webp" alt=""
+                id="moviePic">
+            </a>
+          </div>
+          <!-- detail -->
+          <div class="movie-content">
+            <div class="movie-name">
+              <span>老师·好</span>
+            </div>
+            <div class="movie-ename">
+              <span>Song of Youth</span>
+            </div>
+            <!-- star -->
+            <div class="movie-score">
+              <div class="released-score">
+                <div class="rating" id="rating">
+                  <!--  <img class="img" src="./images/star.png"><img class="img"
+                    src="./images/star.png"><img class="img" src="./images/star.png"><img class="img"
+                    src="./images/star.png"><img class="img" src="./images/star-h.png"> -->
+                  <span class="rating-score">9.4</span>
+                </div>
+                <div class="score-num">
+                  (<span>12.5万</span>人评分)
+                </div>
+              </div>
+            </div>
+            <div class="movie-detail">
+              <p class="movie-type">剧情,喜剧</p>
+              <p class="address-time">
+                <span class="address">中国大陆</span>
+                /
+                <span class="time">111</span>
+                分钟
+              </p>
+              <p class="date">2019-03-22大陆上映</p>
+            </div>
+          </div>
+        </div>
+        <div class="operating flex">
+          <div class="movie-watch flex1" id="movie-watch">
+            <img src="./images/heart.png" alt="">
+            <span>想看</span>
+          </div>
+          <div class="movie-mark flex1">
+            <img src="./images/star2.png" alt="">
+            <span>评分</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section2 -->
+    <section class="section-seperate section-expander">
+      <div class="text-expander" id="text-expander">
+        <div class="text-expander__content close">
+          <p>1985年的南宿一中，苗宛秋（于谦 饰）老师推自行车昂首走在校园，接受着人们艳羡的目光和纷至沓来的恭维。 桀傲不驯的洛小乙（王广源 饰）、温婉可人的安静（汤梦佳 饰）、新潮前卫的关婷婷（秦鸣悦
+            饰）、大智若愚的脑袋、舞痴兄弟文明（郝鹏飞 饰）建设（郜玄铭 饰）、八婆海燕（徐紫茵 饰）、奸商耗子（孙艺杨 饰）……三班是一个永远也不缺故事的集体。
+            苗宛秋怎么也不会想到，他即将走进的这个三班将会成为他以及他身边这辆自行车的噩梦。三班的同学也没有想到，这位新来的老师改变了他们的一生。</p>
+        </div>
+        <div class="text-expander__button">
+          <i class="icon-chevron__down"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- section3 -->
+    <section class="section-seperate">
+      <p class="action-list section-til">演职人员</p>
+      <ul class="movie-celebrities">
+        <!-- <li>
+          <a href="#" class="link">
+            <div class="movie-celebrities__pic">
+              <img src="http://p1.meituan.net/moviemachine/6e06b1eee9a74c9573fdb8150fb8561271624.jpg" alt="">
+            </div>
+            <span class="movie-selebrities-nick">111</span>
+            <span class="movie-celebrities-roles">222</span>
+          </a>
+        </li> -->
+      </ul>
+    </section>
+    <!-- section 4 -->
+    <section class="movie-booking section-seperate section-expander">
+      <p class="section-til">票房</p>
+      <div class="weui-flex">
+        <div class="weui-flex__item">
+          <div class="placeholder">
+            <span id="ranking"></span>
+            <p>昨日票房排行</p>
+          </div>
+        </div>
+        <div class="weui-flex__item">
+          <div class="placeholder">
+            <span id="bookingWeek"></span>
+            <p>首周票房(万)</p>
+          </div>
+        </div>
+        <div class="weui-flex__item">
+          <div class="placeholder">
+            <span id="bookingTotal"></span>
+            <p>累计票房(万)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- section 5 -->
+    <section class="movie-photo section-seperate">
+      <p class="action-list section-til">视频和剧照</p>
+      <ul class="movie-photo__lists">
+        <!-- <li class="stage-img-container">
+          <a href="#" class="link">
+              <div class="movie-celebrities__pic">
+                  <img src="http://p1.meituan.net/moviemachine/6e06b1eee9a74c9573fdb8150fb8561271624.jpg" alt="">
+                </div>
+          </a>
+        </li> -->
+      </ul>
+    </section>
+    <!-- toast -->
+    <div id="toast">
+      <div class="weui-mask_transparent"></div>
+      <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">已标记为想看</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      $.ajax({
+        url: 'https://www.easy-mock.com/mock/5ca4961d34e2a127a257d67d/zhn-maoyangdianying/zhn-maoyangdianying',
+        type: 'get',
+        success: function (res) {
+          console.log(res)
+          $('#moviePic').attr('src', res.data.moviePic)
+          $('.movie-content .movie-name span').html(res.data.name)
+          $('.movie-content .movie-ename span').html(res.data.nameEnglish)
+          star(res.data.star)
+          $('.rating-score').html(res.data.grade)
+          $('.score-num span').html(res.data.people)
+          $('.movie-type').html(res.data.type)
+          $('.address-time .address').html(res.data.where)
+          $('.address-time .time').html(res.data.time)
+          $('.movie-detail .date').html(res.data.date)
+          $('.text-expander__content p').html(res.data.desc)
+          celebrity(res.data.person)
+          booking(res.data.booking)
+          photo(res.data.pictures)
+        }
+      })
+
+      function star(e) {
+        let num = Math.floor(e)
+        if (e > num) {
+          $('#rating').prepend('<img class="img" src="./images/star-h.png">')
+        }
+        for (let i = 0; i < num; i++) {
+          $('#rating').prepend('<img class="img" src="./images/star.png">')
+        }
+      }
+
+
+      $('#movie-watch').click(function () {
+        if ($(this).hasClass('active')) {
+          $('#movie-watch').removeClass('active')
+          $('#movie-watch img').attr('src', './images/heart.png')
+          $('#toast .weui-toast__content').html('已取消想看')
+        } else {
+          $('#movie-watch').addClass('active')
+          $('#movie-watch img').attr('src', './images/heart1.png')
+          $('#toast .weui-toast__content').html('已标记为想看')
+        }
+        $('#toast').css('display', 'block')
+        setTimeout(() => {
+          $('#toast').css('display', 'none')
+        }, 1500)
+      })
+      // 收放详情
+      $('#text-expander').on('click', function () {
+        if ($('.text-expander__content').hasClass('close')) {
+          $('.text-expander__content').removeClass('close')
+          $('.icon-chevron__down').addClass('up')
+        } else {
+          $('.text-expander__content').addClass('close')
+          $('.icon-chevron__down').removeClass('up')
+        }
+      })
+      // 演员表
+      function celebrity(e) {
+        for (let n of e) {
+          $('.movie-celebrities').append(`<li>
+          <a href="#" class="link">
+            <div class="movie-celebrities__pic">
+              <img src="${n.avatal}" alt="">
+            </div>
+            <span class="movie-celebrities-nick">${n.name}</span>
+            <span class="movie-celebrities-roles">${n.sort}</span>
+          </a>
+        </li>`)
+        }
+      }
+
+      // 票房
+      function booking(e) {
+        $('#ranking').html(e.ranking)
+        $('#bookingWeek').html(e.bookingWeek)
+        $('#bookingTotal').html(e.bookingTotal)
+      }
+      // 剧照
+      function photo(array) {
+        for (let m of array) {
+          $('.movie-photo__lists').append(`<li class="stage-img-container">
+          <a href="#" class="link">
+            <div class="movie-celebrities__pic">
+              <img src="${m}" alt="">
+            </div>
+          </a>
+        </li>`)
+        }
+      }
+    })()
+  </script>
+
+
+</body>
+
+</html>
