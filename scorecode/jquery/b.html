@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>司徒正美</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script>
+        function jQueryEle(ele){
+            this.ele = ele;
+        }
+        jQueryEle.prototype.html = function(str){
+            this.ele.innerHTML = str;
+        }
+        const jQuery = {};   // 命名空间 框架名字叫 jQuery 
+        jQuery.wrapper = function(ele){
+            // 将 ele 对象,封装于此
+            // jQuery 里的节点对象,不是简单的html结点,二十一个jquerynew 对象
+            const jqueryEle = new jQueryEle(ele);
+            return jqueryEle;
+        }
+        // 浏览器的页面的渲染机制 DOM Ready
+        function $(selector){
+            if(typeof selector === 'function'){
+                document.addEventListener('DOMContentLoaded',selector)
+            }else if(typeof selector === 'string'){
+                // $() 函数 运行结构,类型 prototype 方法 ele 上有html()  可以return ele;
+                const ele = document.querySelector(selector);
+                if(ele){
+                    // 推论
+                    return jQuery.wrapper(ele);
+                }
+            }
+        }
+        $(function(){
+            console.log('DOM Ready')
+            $('#root').html('<p>我要去云南,我要去越南</p>')
+        })
+    </script>
+</body>
+</html>
