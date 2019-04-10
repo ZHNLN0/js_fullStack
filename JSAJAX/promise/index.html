@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const posts = [{
+                title: 'I love JavaScript',
+                author: 'Wes Bos',
+                id: 1
+            },
+            {
+                title: 'CSS!',
+                author: 'Chris Coyier',
+                id: 2
+            },
+            {
+                title: 'Dev tools tricks',
+                author: 'Addy Osmani',
+                id: 3
+            },
+        ];
+        const authors = [{
+                name: 'Wes Bos',
+                twitter: '@wesbos',
+                bio: 'Canadian Developer'
+            },
+            {
+                name: 'Chris Coyier',
+                twitter: '@chriscoyier',
+                bio: 'CSS Tricks and CodePen'
+            },
+            {
+                name: 'Addy Osmani',
+                twitter: '@addyosmani',
+                bio: 'Googler'
+            },
+        ];
+        function getPostByid(id) {
+            return new Promise ((resolve,reject) => {
+                setTimeout(() => {
+                    const post = posts.find(post => post.id === id)
+                    if(post) {
+                        resolve(post)
+                    }else{
+                        reject(Error('post not find'))
+                    }
+                },200)
+            })
+        }
+        function hyrateAuthor(post) {
+            return new Promise ((resolve,reject) => {
+                setTimeout(() => {
+                    const authorDetails = authors.find((person) => person.name === post.author)
+                    if(authorDetails){
+                        post.author = authorDetails
+                        resolve(post)
+                    }else{
+                        reject(Error('Author not find'))
+                    }
+                },100)
+            })
+        }
+        getPostByid(1)
+            .then(post => {
+                // console.log(post)
+                return hyrateAuthor(post)
+            })
+            .then(author => {
+                console.log(author)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    </script>
+</body>
+
+</html>
