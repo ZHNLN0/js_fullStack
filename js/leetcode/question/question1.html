@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>question1</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            padding-top: 20px;
+            margin-top: 20px;
+            border: 2px solid aqua;
+        }
+
+        .box1 {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+</body>
+
+</html>
+
+<!-- 标准盒模型尺寸的计算
+    盒子模型的实际宽度:width+左右padding+左右border
+    盒子模型的实际长度:height+上下padding+上下border
+ -->
+
+<!-- box1 100px*100px
+        box-sizing: border-box; 
+        border-box  width 和 height 属性包括内容，内边距和边框，但不包括外边距
+ -->
+
+ <!-- box2 104px*124px
+     width=100px+2px+2px    
+     height=100px+2px+2px+20px
+-->

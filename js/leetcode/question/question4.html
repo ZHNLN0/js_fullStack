@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>question4</title>
+</head>
+
+<body>
+    <form class="needs-validation form-container" novalidate id="form">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="nameinput" type="text" placeholder="请输入姓名">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">qq</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="qqinput" type="number" pattern="[0-9]*" placeholder="请输入qq号">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_vcode">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">手机号</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="telinput" type="tel" placeholder="请输入手机号">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label for="" class="weui-label">日期</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" id="dateinput" type="date" value="">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">提交</button>
+    </form>
+    </div>
+    <div class="container">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">序号</th> -->
+                    <th scope="col">姓名</th>
+                    <th scope="col">qq</th>
+                    <th scope="col">手机号码</th>
+                    <th scope="col">生日</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const nameinput = document.getElementById('nameinput');
+        const qqinput = document.getElementById('qqinput');
+        const dateinput = document.getElementById('dateinput');
+        const telinput = document.getElementById('telinput');
+        const tableBody = document.getElementById('tableBody');
+
+
+        function insertNode(info) {
+            const keys = Object.keys(info); //返回一个数组 {name , age,sex,dog}
+            const tr = document.createElement('tr');
+            for (let i = 0; i < keys.length; i++) {
+                const td = document.createElement('td');
+                const text = document.createTextNode(info[keys[i]]);
+                td.appendChild(text);
+                tr.appendChild(td);
+            }
+            tableBody.appendChild(tr);
+        }
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const name = nameinput.value;
+            const qq = qqinput.value;
+            const tel = telinput.value;
+            const date = dateinput.value;
+            insertNode({
+                name: name,
+                qq: qq,
+                tel: tel,
+                date: date,
+            })
+        })
+    </script>
+</body>
+
+</html>
