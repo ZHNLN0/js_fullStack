@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Throttle 防抖</title>
+</head>
+<body>
+    <div class="row">
+        <input type="text" id="unDebounde">
+    </div>
+    <div class="row"><input type="text" id="debounce"></div>
+    <script>
+        // throttle 
+        // 异步，主动请求，服务器端带来压力
+        function ajax(content){
+            // XMLHttpRequest
+            console.log('ajax request ' + content);
+        }
+        let inputa = document.getElementById('unDebounde');
+        let debounceA = document.getElementById('debounce');
+        debounceA.addEventListener('keyup',function(e){
+            // 不能直接ajax 
+            // ajax(e.target.value);
+            // 最后还是要ajax，只不过少做一些
+            debounceAjax(e.target.value)
+        })
+        var debounceAjax = debounce(ajax,1000);
+        /*
+        *   @功能 防抖 性能优化
+        *   @para func function 
+        *   @param delay number 
+        *   @return function 形成闭包 
+        */
+        function debounce(func, delay){
+            
+            let i = 0;
+            return function(args){
+                i++;
+                console.log('clean',func.id, i)
+                clearTimeout(func.id);
+                var that = this
+                func.id = setTimeout(function(){
+                   func.call(that,args);
+                }, delay);
+                console.log(func.id,'==========',i)
+            }
+        }
+
+        inputa.addEventListener('keyup',function(e){
+            ajax(e.target.value);
+        })
+    </script>
+</body>
+</html>
