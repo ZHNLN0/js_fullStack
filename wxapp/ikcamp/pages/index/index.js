@@ -1,66 +1,38 @@
-// pages/detail/index.js
-Page({
+import util from '../../utils/index.js'
+import config from '../../utils/config.js'
 
-  /**
-   * 页面的初始数据
-   */
+let app = getApp()
+let isDEV = config.isDev
+
+let handler = {
   data: {
-
+    page: 1,
+    days: 3,
+    pageSize: 4,
+    totalSize: 0,
+    hasMore: true,
+    articleList: [],
+    defaultImg: config.defaultImg,
+    hiddenLoading: false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+    this.requestArticle()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  requestArticle() {
+    util.request({
+      url: 'list',
+      mock: true,
+      data: {
+        tag: '微信热门',
+        start: this.data.page || 1,
+        days: this.data.days || 3,
+        pageSize: this.data.pageSize || 4,
+        langs: config.appLang || 'en'
+      }
+    })
+    .then(res => {
+      console.log(res)
+    })
   }
-})
+}
+Page(handler)
