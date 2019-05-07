@@ -9,7 +9,9 @@ Page({
    currentTab: 1,
    scrollLeft: 0,
    isLoading: true,
-   address: ''
+   address: '',
+   destination: null,
+   callCart: false
   },
   //事件处理函数
   bindViewTap: function() {
@@ -26,6 +28,11 @@ Page({
       destination: app.globalData.destination,
     })
   },
+  toCast() {
+    this.setData({
+      callCart: true
+    })
+  },
   requestCart(){
    util.request({
      url: 'https://www.easy-mock.com/mock/5cce35cf2afdcd7c8714550c/didi-wxapp/didi-wxapp'
@@ -33,7 +40,8 @@ Page({
    .then((res) => {
      console.log(res)
      this.setData({
-       navData: res.data.navData
+       navData: res.data.navData,
+       cost: res.data.cost
      })
    })
    },

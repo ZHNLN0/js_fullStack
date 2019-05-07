@@ -119,3 +119,9 @@ page {
   color: #fff;
   left: 0;
 }
+
+/* 计费区域 */
+.cost-item image {
+  width: 30rpx;
+  height: 30rpx;
+}

@@ -1,4 +1,5 @@
 // pages/destination/destination.js
+const app = getApp()
 Page({
 
   /**
@@ -62,5 +63,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  searchInput(e) {
+    const value = e.detail.value;
+    app.globalData.qqmapsdk.getSuggestion({
+      keyword: value,
+      region: '南昌',
+      success: (res) => {
+        this.setData({
+          address: res.data
+        })
+      }
+    })
+  },
+  toIndex(e) {
+    // 地址简写
+    const destination = e.currentTarget.dataset.destination;
+    // 详细地址
+    const eddAddress = e.currentTarget.dataset.end;
+    app.globalData.destination = destination;
+    wx.navigateTo({
+      url: '../index/index'
+    })
   }
 })

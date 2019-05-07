@@ -30,9 +30,23 @@
       </view>
     </navigator>
      <navigator url="/pages/destination/destination">
-       <input type="text" class="didi-input-end" placeholder="你要去哪里" />
+       <input type="text" class="didi-input-end" placeholder="你要去哪里" value='{{destination}}' />
     </navigator>
     <view class="circle-end"></view>
     <button class="didi-btn" bindtap="toCast">呼叫{{cart}}</button>
+  </view>
+  <!-- 计费区域 -->
+  <view wx:if="{{callCart}}">
+    <view class="cost-content">
+      <view class="cost">
+        <view class="cost-title">
+          <block wx:for="{{cost}}">
+            <view class="cost-item">
+              <image src="{{item.url}}" /> {{item.name}}
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

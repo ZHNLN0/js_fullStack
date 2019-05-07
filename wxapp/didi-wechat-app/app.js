@@ -1,4 +1,9 @@
 //app.js
+const QQMap = require('./libs/qqmap-wx-jssdk')
+const qqmapsdk = new QQMap({
+  key: '4FKBZ-3CDWD-JAO4U-PWDGJ-QXHYQ-2MB24'
+})
+
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -37,6 +42,7 @@ App({
     userInfo: null,
     address: '范家新村-公交站',
     destination: '',
-    id: '快车'
+    id: '快车',
+    qqmapsdk
   }
 })
