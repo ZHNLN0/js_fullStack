@@ -1,0 +1,4 @@
+<!--pages/countdown/countdown.wxml-->
+<countdown id="sendRandom" start="{{start}}" bind:getCountdownEvent="_getCountdownEvent" bind:setStartDataEvent="_setStartDataEvent">
+
+</countdown>

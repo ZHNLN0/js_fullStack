@@ -1,0 +1,6 @@
+<!--miniprogram/pages/trends/trends.wxml-->
+<view class="trends">
+  <trend wx:for="{{trends}}" wx:key="{{index}}" repo="{{item}}">
+    
+  </trend> 
+</view>
