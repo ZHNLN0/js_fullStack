@@ -9,7 +9,7 @@ Page({
     interval: 3000,
     duration: 1000,
     swiperCurrent: 0,
-    goodsRcommend: []
+    goodsRecommend: []
   },
   swiperchange(e) {
     console.log(e.detail.current,'--------------');
@@ -34,8 +34,10 @@ Page({
           this.setData({
           goodsRecommend: res.data
         })
+        
         }
       })
+      
   },
   getCategory(){},
   getBanners(){
