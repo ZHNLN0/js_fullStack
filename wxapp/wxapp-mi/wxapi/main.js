@@ -22,5 +22,11 @@ const request = (url, needSubDomain, method, data) => {
 module.exports = {
   loadSwip: (data) => {
     return request('index', true, 'get', data)
+  },
+  loadNavBar: (data) => {
+    return request('index', true, 'get', data)
+  },
+  loadRecommend: (data) => {
+    return request('index', true, 'get', data)
   }
 }

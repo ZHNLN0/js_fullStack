@@ -17,5 +17,45 @@
       </block>
     </swiper>
   </view>
-  <!--  -->
+  <!-- 商品分类 -->
+  <view class="navBar">
+    <view class="navBar-list">
+      <block wx:for="{{navBarUrl}}" wx:key="index">
+        <view class="navBar-item">
+          <navigator src="{{item.skipurl}}" hover-class="none">
+            <image src="{{item.imgurl}}" />
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+  <!-- 首页主要内容 -->
+  <view class="content">
+    <view class="recommend">
+      <view class="recommend-title">
+        <text>人气推荐</text>
+      </view>
+      <view class="recommend-content">
+        <block wx:for="{{recommendList}}" wx:key="index">
+          <view class="recommend-item {{index % 2 == 0 ? 'margin-right' : ''}}">
+            <view class="content-image">
+              <image src="{{item.imgUrl}}" />
+            </view>
+            <view class="info">
+              <view class="name">
+                <text>{{item.name}}</text>
+              </view>
+              <view class="brief">
+                <text>{{item.brief}}</text>
+              </view>
+              <view class="goodsPrice">
+                <text class="newPrice">{{item.newPrice}}</text>
+                <text class="oldPrice">{{item.oldPrice}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
 </view>
