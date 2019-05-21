@@ -1,1 +1,18 @@
 /* pages/category/category.wxss */
+.container {
+  width: 750rpx;
+  position: relative;
+}
+.category-left {
+  float: left;
+  width: 150rpx;
+  border-right: 4rpx solid #ebebeb;
+  box-sizing: border-box;
+}
+.category-list {
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #000000;
+}

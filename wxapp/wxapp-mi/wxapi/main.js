@@ -28,5 +28,8 @@ module.exports = {
   },
   loadRecommend: (data) => {
     return request('index', true, 'get', data)
+  },
+  loadCategory: (data) => {
+    return request('category', true, 'get', data)
   }
 }

@@ -1,31 +1,18 @@
-// pages/category/category.js
-const WXAPI = require('../../wxapi/main')
+// pages/chooseLib/chooseLib.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    category: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCategory()
-  },
-  getCategory() {
-    WXAPI
-    .loadCategory()
-    .then((res) => {
-      // console.log(res.data.category)
-      if(res.data.code === 0) {
-        this.setData({
-          category: res.data.category
-        })
-      }
-    })
+
   },
 
   /**
