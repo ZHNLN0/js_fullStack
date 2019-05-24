@@ -31,5 +31,8 @@ module.exports = {
   },
   loadCategory: (data) => {
     return request('category', true, 'get', data)
+  },
+  loadCategoryItem: (data) => {
+    return request('category', true, 'get', data)
   }
 }

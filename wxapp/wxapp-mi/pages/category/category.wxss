@@ -16,3 +16,60 @@
   font-size: 30rpx;
   color: #000000;
 }
+
+.category-right {
+  float: right;
+  width: 600rpx;
+}
+.cate-item {
+  width: 600rpx;
+  background-color: #fff;
+}
+.classify-item {
+  width: 570rpx;
+  margin: 20rpx 15rpx;
+}
+
+.classify-title {
+  width: 100%;
+  height: 100rpx;
+  font-size: 30rpx;
+  color: #424242;
+  line-height: 100rpx;
+  text-align: center;
+}
+.classify-title view {
+  display: inline-block;
+  width: 50rpx;
+  height: 4rpx;
+  background-color: #d9d9d9;
+}
+
+
+
+.classify-list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.classify-detail {
+  width: 190rpx;
+}
+.detail-image image {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 45rpx;
+}
+.detail-name {
+  width: 150rpx;
+  height: 70rpx;
+  color: #666666;
+  line-height: 70rpx;
+  margin: 0rpx 20rpx;
+  font-size: 20rpx;
+  text-align: center;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}

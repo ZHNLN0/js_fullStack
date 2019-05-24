@@ -6,14 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    category: []
+    category: [],
+    categoryItem:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCategory()
+    this.getCategory(),
+    this.getCategoryItem()
   },
   getCategory() {
     WXAPI
@@ -24,6 +26,19 @@ Page({
         this.setData({
           category: res.data.category
         })
+      }
+    })
+  },
+  getCategoryItem() {
+    WXAPI
+    .loadCategoryItem()
+    .then((res) => {
+      if(res.data.code === 0) {
+        console.log(res.data.categoryItem)
+        this.setData({
+          categoryItem: res.data.categoryItem
+        })
+        
       }
     })
   },
