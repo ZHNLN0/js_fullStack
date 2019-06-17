@@ -1,0 +1,44 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add player -S
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\nodejs;%JAVA_HOME%\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\PuTTY;E:\study\.vscode\html;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;E:\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\applications\jdk1.8.0_202\bin;C:\databases\mysql-5.6.27-winx64\bin;C:\Users\Administrator\AppData\Local\BypassRuntm;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v4\npm-ansi-regex-3.0.0-ed0317c322064f79466c02966bddb605ab37d998\node_modules\ansi-regex\index.js' -> 'e:\ZHN_LEARN\js_fullStack\js\node\event\node_modules\string-width\node_modules\ansi-regex\index.js'
+
+npm manifest: 
+  {
+    "name": "event",
+    "version": "1.0.0",
+    "description": "click \r http ((req,res)=>{\r   res.on('data')\r   res.on('end')\r })\r onClick\r onDbClick\r 订阅发布者模式。",
+    "main": "index.js",
+    "directories": {
+      "lib": "lib"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "inquirer": "^6.3.1",
+      "request": "^2.88.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
