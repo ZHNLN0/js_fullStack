@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "今天我这边也在下雨，好巧哦",
+      "author": "typicode"
+    },
+    {
+      "body": "Hello word",
+      "postId": "1",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "body": "雨一直下",
+      "id": 2,
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
