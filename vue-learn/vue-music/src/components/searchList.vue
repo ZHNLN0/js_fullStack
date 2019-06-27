@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     selectItem() {
-
+      
     }
   },
 }

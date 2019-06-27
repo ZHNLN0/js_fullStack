@@ -2,7 +2,7 @@
   <div class="search">
     <div class="search-box-wrapper">
       <!-- 搜索框 -->
-    <search @query="onQueryChange"></search>
+    <search @query="onQueryChange" ref="searchBox"></search>
     </div>
     <div class="shortcut-wrapper" ref="shortcutWrapper" v-show="!query">
       
@@ -32,14 +32,14 @@
               </span>
             </h1>
             <!-- 搜索历史列表 -->
-            <v-searchList :searches="searchHistory"></v-searchList>
+            <v-searchList :searches="searchHistory" @select="addQuery"></v-searchList>
           </div>
         </div>
       </scroll>
     </div>
     <!-- 搜索结果 -->
     <div class="search-result" v-show="query" ref="searchResult">
-      <v-suggest :query="query"></v-suggest>
+      <v-suggest :query="query" @listScroll="blurInput" @select="saveSearch" ref="suggest"></v-suggest>
     </div>
   </div>
 </template>
@@ -49,21 +49,16 @@ import search from './searchBox.vue'
 import scroll from './scroll.vue'
 import searchList from './searchList'
 import suggest from './suggest'
+import api from '../api/index'
+import {mapGetters} from 'vuex'
+import {searchMixin} from '../common/mixin.js'
 export default {
   data(){
     return{
       query:'',
       shortcut:[],
-      searchHistory: ['hahah'],
       refreshDelay: 20,
-      hotKey:[
-        {first:'许嵩新歌发布'},
-        {first:'许嵩新发布'},
-        {first:'许嵩歌发布'},
-        {first:'许新歌发布'},
-        {first:'新歌发布'},
-        {first:'发布'},
-      ]
+      hotKey:[]
     }
     
   },
@@ -73,12 +68,34 @@ export default {
     'v-searchList': searchList,
     'v-suggest': suggest
   },
+  mixins: [searchMixin],
   methods: {
     showConfirm() {},
     onQueryChange(query) {
-      this.query = query
-      console.log(query)
-    }
+      this.query = query.trim()
+      
+    },
+    blurInput() {},
+    saveSearch(data) {
+      console.log(data)
+      this.$store.dispatch('saveSearchHistory', data)
+    },
+    _getHotKey () {
+      api.HotSearchKey().then((res) => {
+        if(res.code === 200) {
+          this.hotKey = res.result.hots.slice(0, 10)
+        }
+      })
+    },
+
+  },
+  created() {
+    this._getHotKey()
+  },
+  computed: {
+    ...mapGetters([
+      'searchHistory'
+    ])
   },
   mounted() {
     // console.log(this.query)
