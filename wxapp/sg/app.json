@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/users/show",
     "pages/posts/show",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/posts/create"
   ],
   "window": {
     "navigationBarTitleText": "旅梦诗歌集",
@@ -37,5 +38,6 @@
         "selectedIconPath": "assets/icons/face-active.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

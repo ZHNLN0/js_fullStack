@@ -1,0 +1,27 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <!-- 轮播图 -->
+  <view class="swiper-container">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" class="swiper-slide">
+        <block wx:for="{{detail.gallery_view}}" wx:key="index">
+          <swiper-item>
+            <image src="https:{{item.img_url}}" mode="widthFix" class="swiper-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+  </view>
+  <view class="detail">
+    <view class="product-name">
+      {{detail.default.name}}
+    </view>
+    <view class="product-desc">
+      {{detail.default.desc}}
+    </view>
+    <view class="product-price">
+      {{detail.default.price}}
+    </view>
+  </view>
+</view>
+
+

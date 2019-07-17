@@ -1,0 +1,8 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+  <block wx:for="{{index}}" wx:key="index">
+    <view class="{{item.view_type}}" data-index="{{index}}">
+      
+    </view>
+  </block>
+</view>

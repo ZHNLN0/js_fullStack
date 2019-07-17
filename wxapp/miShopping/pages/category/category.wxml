@@ -1,0 +1,37 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <view class="categoryWrapper clearfloat" bindtouchstart="scrollY">
+    <scroll-view class="categoryLeft" id="categoryL" scroll-y="{{scrollL}}">
+      <ul wx:for="{{category}}">
+        <li class="itemNav {{curIndex === index ? 'on' : ''}}"  data-index="{{index}}" bindtap="switchTab" data-id="{{item.category_name_en}}">
+          {{item.category_name}}</li>
+      </ul>
+    </scroll-view>
+    <scroll-view class="categoryRight" id="categoryR" scroll-y="{{scrollR}}" bind:scroll="onScroll" scroll-with-animation="{{true}}" scroll-into-view="{{toView}}" >
+      <block wx:for="{{category}}">
+        <view class="categoryItem mb20" id="{{item.category_name_en}}">
+          <block wx:for="{{item.category_list}}" wx:for-item="lists">
+            <view class="listItem">
+              <view class="categoryName tc">
+                <text class="line fs28">{{lists.body.category_name}}</text>
+              </view>
+              <view class="products">
+                <block wx:for="{{lists.body.items}}" wx:for-item="product">
+                  <view class="product">
+                    <view class="productImg">
+                      <image src="https:{{product.img_url}}"></image>
+                    </view>
+                    <view class="productName tc ellipsis">
+                      <text class="fs22">{{product.product_name}}</text>
+                    </view>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+
+    </scroll-view>
+  </view>
+</view>

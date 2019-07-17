@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 搜索框 直接跳转到搜索页面 -->
+  <view class="searchWrapper">
+    <navigator class="search-content center fcc">
+      <image class="searchImg" src="../../assets/icons/search.png" alt="" />
+      <text class="searchText">搜索商品</text>
+    </navigator>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper-container">
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+      indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" class="swiper-slide">
+      <block wx:for="{{swiper.body.items}}" wx:key="index">
+        <swiper-item>
+          <image src="https:{{item.img_url}}" mode="widthFix" class="swiper-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 首页导航链接 -->
+  <view>
+    <block wx:for="{{cells}}" wx:key="index">
+      <view class="cells_auto_fills fcc">
+        <block wx:for="{{item.body.items}}" wx:for-item="cell">
+          <navigator class="cell">
+            <image src="https:{{cell.img_url}}"></image>
+          </navigator>
+        </block>
+      </view>
+    </block>
+  </view>
+  <view class="divider_line"></view>
+  <view class="products">
+    <view class="products-header">
+      <image src="https:{{products.header.body.items[0].img_url}}" />
+    </view>
+    <view class="divider_line"></view>
+    <view class="product-list fbw">
+      <block wx:for="{{products.recom_list}}">
+        <view class="product">
+          <view class="product-img">
+            <image src="https:{{item.image_url}}" />
+          </view>
+          <view class="product-name ptrbl-15 ellipsis">
+            <text class="fs26">{{item.name}}</text>
+          </view>
+          <view class="product-desc ellipsis-2">
+            <text class="fs22 fc-2">{{item.product_desc}}</text>
+          </view>
+          <view class="product-price ptrbl-20">
+            <text class="fs28 fc-5">￥{{item.price}}</text>
+            <text wx:if="{{item.price !== item.marker_price}}" class="{{item.price === item.marker_price ? 'hide' : ''}} marker-price ml15 fs22 fc-2">￥{{item.market_price}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    这是server下的 index.html
+  </div>
+  <script>
+    window.addEventListener('message', function(event) {
+      const data = event.data
+      console.log('data', data)
+      fetch('http://localhost:9999/api/post?name=' + data, {
+      headers: {
+        'X-custom': 'abc'
+      },
+      credentials: 'include'
+    })
+    .then(res => res.json())
+    .then(res => {
+      // console.log('请求结果', res)
+      window.parent.postMessage(res, '*')
+    })
+
+    })
+  </script>
+</body>
+</html>

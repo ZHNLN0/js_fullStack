@@ -1,0 +1,10 @@
+/* pages/detail/detail.wxss */
+
+.swiper-container .swiper-slide{
+  width: 750rpx;
+  height: 825rpx;
+}
+.swiper-slide .swiper-image {
+  width: 750rpx;
+  display: block;
+}

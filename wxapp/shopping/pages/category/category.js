@@ -20,7 +20,7 @@ Page({
   },
 
   switchTab(e) {
-    console.log(e)
+    console.log(1,e)
     this.setData({
       curIndex: e.target.dataset.index,
       toView: e.target.dataset.id

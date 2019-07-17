@@ -1,10 +1,10 @@
-import api from '../../api/index'
+import api from '../../api'
 import * as types from '../types'
 
 const state = {
   showSidebar: false,
   fullScreen: false,
-  searchHistory: ['haha']
+  searchHistory: ['123','das']
 }
 
 const mutations = {
@@ -20,19 +20,18 @@ const mutations = {
 }
 
 const actions = {
-  setShowSidebar({commit}, status) {
+  setShowSidebar ({commit}, status) {
     commit(types.COM_SHOW_SIDE_BAR, status)
   },
-  selectPlaySong({commit}, status) {
+  selectPlaySong ({ commit }, status) {
     // let playlist = state.playlist.slice()
     commit(types.SET_FULL_SCREEN, status)
   },
-  saveSearchHistory({commit, state}, query) {
+  saveSearchHistory({ commit, state }, query) {
     let searchHistory = [query, ...state.searchHistory.slice()]
     searchHistory = [...new Set(searchHistory)]
     commit(types.COM_SAVE_SEARCH_HISTORY, searchHistory)
   }
-  
 }
 
 const getters = {
@@ -42,7 +41,7 @@ const getters = {
 }
 
 export default {
-  state, 
+  state,
   mutations,
   actions,
   getters
