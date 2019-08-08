@@ -9,6 +9,7 @@
 <body>
   <script>
     document.cookie = 'name=helloCors';
+    // X-custom: 'abc'
     fetch('http://localhost:9999/api/post', {
       headers: {
         'X-custom': 'abc'
@@ -17,7 +18,7 @@
     })
     .then(res => res.json())
     .then(res => {
-      console.log(res)
+      console.log('请求结果', res)
     })
   </script>
 </body>

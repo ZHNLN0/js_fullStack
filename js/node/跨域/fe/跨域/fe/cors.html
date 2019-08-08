@@ -10,7 +10,7 @@
   <script>
     document.cookie = 'name=helloCors';
     // X-custom: 'abc'
-    fetch('/api/post', {
+    fetch('http://localhost:9999/api/post', {
       headers: {
         'X-custom': 'abc'
       },

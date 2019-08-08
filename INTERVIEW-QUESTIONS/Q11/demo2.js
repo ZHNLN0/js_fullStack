@@ -16,5 +16,5 @@ function quick_sort(arr) {
       right.push(arr[i])
     }
   }
-  return quick_sort(left).concat([basse], quick_sort(right)); // O(log2N)
+  return quick_sort(left).concat([base], quick_sort(right)); // O(log2N)
 }
