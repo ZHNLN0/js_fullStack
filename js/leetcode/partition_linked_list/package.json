@@ -330,7 +330,7 @@
     "json-schema-traverse": "^0.4.1",
     "json5": "^0.5.1",
     "json3": "^3.3.3",
-    "kind-of": "^3.2.2",
+    "kind-of": "^6.0.3",
     "killable": "^1.0.1",
     "lcid": "^2.0.0",
     "loader-runner": "^2.4.0",
