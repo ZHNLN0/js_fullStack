@@ -483,7 +483,7 @@
     "selfsigned": "^1.10.4",
     "schema-utils": "^1.0.0",
     "semver": "^5.7.0",
-    "serialize-javascript": "^1.7.0",
+    "serialize-javascript": "^3.1.0",
     "send": "^0.17.1",
     "serve-index": "^1.9.1",
     "serve-static": "^1.14.1",
